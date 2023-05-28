@@ -89,7 +89,7 @@ export const updateUser = async (req: any, res: Response)=>{
     }
     
     try {
-        const userDB = await  Usuario.findByIdAndUpdate(req.usuario.id,user,{new: true});
+        const userDB = await  Usuario.findByIdAndUpdate(req.usuario._id,user,{new: true});
 
         if(!userDB){
             return res.json({
