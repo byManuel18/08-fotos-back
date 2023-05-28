@@ -48,6 +48,8 @@ export const obtenerPost = async (req: Request, res: Response)=>{
 
 
 export const subirArchivo =async (req: any, res: Response) =>{
+    console.log('rere');
+    
     if(!req.files){
         return res.status(400).json({
             ok: false,
@@ -76,7 +78,7 @@ export const subirArchivo =async (req: any, res: Response) =>{
 
     return res.json({
         ok: true,
-        mensaje: 'Mensaje subido'
+        mensaje: 'Archivo subido'
     })
 
 }

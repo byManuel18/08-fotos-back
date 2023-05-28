@@ -9,11 +9,13 @@ export default class FileSystem {
     constructor(){}
 
     guardarImgTemp(img: FileUpload, userId: string){
+         console.log(img);
          
         return new Promise<void>((resolve,reyect)=>{
             const pathC = this.crearCarpetaUsuario(userId);
-    
-            const nombreArchivo = this.generarNombreUnico(img.name);
+            const type = img.mimetype.split('/');
+            
+            const nombreArchivo = this.generarNombreUnico(img.name + '.' + type[1]);
 
             img.mv(`${pathC}/${nombreArchivo}`,(err: any)=>{
                 if(err){
